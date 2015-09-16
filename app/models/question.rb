@@ -5,6 +5,9 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :voteable
   has_many :answers
 
+  validates :title, presence: true
+  validates :body, presence: true
+
   def find_display_name(user_id)
     User.find_by(id: user_id).display_name
   end
