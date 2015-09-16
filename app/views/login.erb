@@ -18,16 +18,16 @@
 
     <p id="or">OR</p>
 
-    <form class="new_registration" method="post" action="/users"><label for="email">Email (required, but never shown)</label>
+    <form class="auth" method="post" action="/users"><label for="email">Email (required, but never shown)</label>
       <input type="text" name="user[email]">
       <br>
 
-      <label for="password">Password</label>
-      <input type="password" name="user[password]">
+      <label for="email">Email (required, but never shown)</label>
+      <input id="email" type="text" name="user[email]">
       <br>
 
-      <label for="conrirm_password">Confirm Password</label>
-      <input type="confirm_password" name="user[confirm_password]">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="user[password]">
       <br>
 
       <a id="signup-options" href="/">forgot password?</a>
