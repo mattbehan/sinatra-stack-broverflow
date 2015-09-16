@@ -1,0 +1,52 @@
+<a href="questions/new">Ask Question</a>
+
+<!-- Questions -->
+<h1><%= question.title %></h1>
+<div class="container">
+  <h2>
+    <%= @question.title %>
+  </h2>
+  <!-- Stats -->
+  <p>
+    <%= @question.vote %>
+  </p>
+  <!-- Question body -->
+  <p> <%= @question.body %></p>
+  <!-- Taggings -->
+
+  <!-- Username -->
+  <a href="">
+      <%= question.find_display_name(question.user_id) %>
+  </a>
+  <!-- Add a comment -->
+  <a href="#">add a comment</a>
+</div>
+<!-- Answers -->
+<div class="container">
+
+  <% @answers.each do |answer| %>
+    <p>
+      <%= answer.vote %>
+    </p>
+
+    <h2> <%= answer.text %> </h2>
+
+    <a href="/users/"<%= question.user_id %>>
+        <%= answer.find_display_name(answer.user_id) %>
+    </a>
+    <!-- Add a comment -->
+    <a href="#">add a comment</a>
+  <% end %>
+</div>
+<!-- Submit Answers -->
+<div class="container">
+  <h2>Your Answer</h2>
+
+  <form action="/answers" method="post">
+    <input type="hidden" name="question_id" value=<%= question.id %>>
+    <textarea name="answer-text">
+    </textarea>
+  </form>
+
+  <input id="submit-button">
+</div>

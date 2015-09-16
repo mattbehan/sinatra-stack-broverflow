@@ -1,0 +1,26 @@
+<h1>Welcome to Homepage/All Posts</h1>
+
+<a href="questions/new">Ask Question</a>
+
+<div class="container">
+  <h2>Top Questions</h2>
+  <% @questions.each do |question| %>
+    <!-- Stats -->
+    <p> <%= question.vote %> </p>
+    <p> <%= question.find_answers_for_question(question.id) %> </p>
+
+    <!-- Question -->
+    <h3><a href="/questions/"<%= question.id %>>
+      <%= question.title %>
+    </a></h3>
+    <!-- Tags -->
+    <% question.find_taggings_for_question(question.id).each |tag| %>
+      <div><%= tag.type %></div>
+    <% end %>
+    <!-- Author -->
+    <a href="/users/"<%= question.user_id %>>
+      <%= question.find_display_name(question.user_id) %>
+    </a>
+
+  <% end %>
+</div>
