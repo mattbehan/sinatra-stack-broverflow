@@ -14,9 +14,9 @@
       <%= question.title %>
     </a></h3>
     <!-- Tags -->
-    <% question.find_taggings_for_question(question.id).each |tag| %>
-      <div><%= tag.type %></div>
-    <% end %>
+    <%# question.find_taggings_for_question(question.id).each |tag| %>
+      <div><%#= tag.type %></div>
+    <%# end %>
     <!-- Author -->
     <a href="/users/"<%= question.user_id %>>
       <%= question.find_display_name(question.user_id) %>

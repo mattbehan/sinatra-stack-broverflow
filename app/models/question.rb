@@ -12,11 +12,11 @@ class Question < ActiveRecord::Base
     User.find_by(id: user_id).display_name
   end
 
-  def find_answers_for_question(question.id)
+  def find_answers_for_question(question_id)
     Answer.find_by(question_id: question.id).count
   end
 
-  def find_taggings_for_question(question.id)
+  def find_taggings_for_question(question_id)
     Taggings.find_by(question_id: question_id)
   end
 end
