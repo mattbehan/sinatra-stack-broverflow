@@ -1,84 +1,51 @@
-# DBC Sinatra Overflow
+TEAM stack overBROOOO
 
-## Learning Competencies
+Bro1: Mat Liew
+Bro2: Alexis Moody
+Bro3: Nicole Carpenter
+Bro4: Matt Behan
 
-* Given a specification, implement an HTTP application that generates appropriate responses to requests using Sinatra or Rails
+---MVP user stories---
+As a User I should be able to post questions, so that I can gain information
 
-## Summary
+On the main page, questions should be sorted by newest first, So that people can easily view questions chronologically
 
-Let's get our feet wet building a substantial Sinatra application from the ground up: a [StackOverflow](http://stackoverflow.com) clone.
+As a User I should be able to respond to questions in the form of answers, so that other people can have their questions answered
 
-Feel free to take a few minutes and peruse StackOverflow to gather a good understanding of what you will be building. The goal is to focus on building a well-structured Sinatra application with a good mixture of front-end and back-end features.  Focus on defining clear routes, creating clean templates, and enhancing your application by making AJAX calls.
+Users should not be able to vote/comment or post a question/answer unless they are logged in
 
-## Strategy
+Users need to be able to sign up
 
-Before you dive to deeply into the code, be clear with your team on three things:
+Users need to be able to login/logout
 
-1. Set expectations for the project.
-2. Decide on your MVP
-3. Break your MVP down into deliverable features
+Users should only be able to vote once, however they should also be allowed to change the direction of their vote
 
-## Objectives
+As a User I should be able to vote (either up or down) on both comments, answers, and questions, in order to represent the usefulness of that question/response/comment
 
-These instructions are left deliberately ambiguous, both to give you flexibility in your implementation and because clarifying ambiguous requirements is at least 30% of an engineer's job.  At.  Least.
+---Full Specifications---
 
-Users should be able to post questions.  Other users should be able to answer them.  Users should be able to respond to both questions and answers.  Like StackOverflow, the responses should just be a flat list.
+On the main page, questions should be sorted by newest first, So that people can easily view questions chronologically
 
-The person who posted a question can declare one of the user-submitted answers "the best."
+On an individual question, answers should be sorted descending with the highest voted answer first, so that answers are ordered in terms of usefulness
 
-Users should be able to vote on questions, answers, and responses (both upvotes and downvotes) - only once.
+Users should be able to see questions sorted in three ways, highest-voted, most recent, and "trending". This way, users can more easily find what they are looking for
 
-Users cannot add a question, answer, or vote unless they're logged in, but they can view all of the above when logged out.
+As a User I should be able to respond to answers in the form of comments, so that I can make comments/ clarify that response
 
-Stretch: Responses should be sorted chronologically, with oldest first.  Answers should be sorted by "the best" first, followed by most highly-voted.
+As a User I should be able to respond to questions in the form of comments, so that I can make comments/ clarify what that User is asking
 
-Stretch: Users should be able to see questions sorted three ways: highest-voted, most recent, and "trending."
+A users profile page should have tabs for questions they posted, their answers, their favorites, their comments, and things they voted on
 
-### Polymorphic Associations
+Users should be able to "favorite" questions so that they can come back to them later
 
-Because there are multiple "votable" models &mdash; questions, answers, and responses &mdash; we have the opportunity to use [polymorphic associations](http://guides.rubyonrails.org/association_basics.html#polymorphic-associations).  Instead of having three vote-related tables like `answer_votes`, `question_votes`, etc. polymorphic associations enable you to have a single `votes` table with a `type` column that indicates what kind of thing was voted on.  You may also want to consult [Rich on Rails blog post on polymorphic associations][rorpa].
+Users should be allowed to add a display picture, a location, birthdy, a bio, as well as links to their website, twitter, and github
 
-Likewise, a `Response` can belong to either an `Answer` or a `Question`.
+Users should be allowed to :tag questions so that other users can more easily identify the subject matter of the question
 
-That is, instead of the "type" being encoded in the table name, it's encoded as a field in the table.
+Upon signup, a user must confirm their email
 
-The decision to make use of Polymorphic Associations is up to your group. **You are not required to dive into this new concept right now.** It is 100% possible to simply have a `answer_votes` and `question_votes` table to store the different types of votes and a `answer_responses` and `question_responses` table to store the different types of responses.
+If a User deletes their post, it should appear on the page, with a red background, with an option to undelete
 
-### AJAX
+favoriting and voting, commenting, and adding additional answers should be AJAX'ed, in order to enhance the users experience
 
-We need to practice our new AJAX skills. Your team should decide what specific pieces of functionality y'all want to AJAX. A good place to start is AJAXing the voting functionality. 
-
-For example, instead of refreshing the page when a user upvotes or downvotes, we just want to make a quick AJAX call to our server to send that info and update the vote count on our page.
-
-### Pro Developer Tips
-
-* You should track your work / user stories and their progress by means of an electronic tracking application Trello is a common one, Pivotal Tracker is another
-* _Optional_:  Add a chat application.  Many teams, especially those that work remotely, find it helpful to create a chat environment in either Slack, HipChat or some other technology.  Integrate this with GitHub and CI and hygeinic git behavior, you can work as well separated by miles as you might while standing in the same room together.
-
-### Checkpoints
-
-* Your team should produce a repo inside of your cohort's organization in GitHub
-* Your first commit should be a `README.md` containing:
- * Your team name
- * Your team members' names
- * The user stories that define your MVP
-* You should practice "good" git workflow and commit often
-  * **You should not merge your own branches. A team member should review your code then merge it.** 
-* You should have multiple AJAX calls to enhance a user's experience
-* You will be demo-ing your MVP
- * Show us your app doing the essential functionalities listed above
-
-## Resources
-- [Git Workflow for Teams](https://gist.github.com/mikelikesbikes/ccbf4c7fd90e647138c6)
-- [Git: Rebase vs Merge](http://gitguru.com/2009/02/03/rebase-v-merge-in-git/)
-- [Git Resources](http://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
-- [Sessions and User Authentication](https://talks.devbootcamp.com/sessions-and-user-authentication) 
-- [Manifesto for Agile Practices](http://agilemanifesto.org/)
-- [Sample Scrum Board](http://amareshv.files.wordpress.com/2011/03/fairydustboard_20110324.jpg)
-- [Trello](https://trello.com/) - great resource to organize workflow within a group project
-
-
-[Trello]: https://trello.com/
-[Slack]: https://slack.com/
-[rorpa]: http://richonrails.com/articles/polymorphic-associations-in-rails
-[cls]: http://en.wikipedia.org/wiki/Command-line_interface
+Users should have "badges" that represent certain tallies of their reputation overall or their reputation gained from certain posts. This way, users feel rewarded for participating in stack overbro
