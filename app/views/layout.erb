@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
@@ -12,13 +13,132 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <!-- <link rel="stylesheet" href="/css/layout.css"> -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
+
 <body>
   <%= yield %>
+  <div class="footer">
+    <div class="site-links">
+      <a href="/">tour</a>
+      <a href="/">blog</a>
+      <a href="/">chat</a>
+      <a href="/">data</a>
+      <a href="/">legal</a>
+      <a href="/">privacy</a>
+      <a href="/">policy</a>
+      <a href="/">work here</a>
+      <a href="/">advertising</a>
+      <a href="/">info</a>
+      <a href="/">mobile</a>
+      <a id="contact-links" href="/">contact us</a>
+      <a id="contact-links" href="/">feedback</a>
+    </div>
+
+    <table class="footer-table">
+      <th>TECHNOLOGY</th>
+      <th></th>
+      <th></th>
+      <th>LIFE/ARTS</th>
+      <th>CULTURE/RECREATION</th>
+      <th>SCIENCE</th>
+      <th>OTHER</th>
+
+      <tr>
+        <td><a class="footer-link" href="/">Stack Overflow</a></td>
+        <td><a class="footer-link" href="/">Programmers</a></td>
+        <td><a class="footer-link" href="/">Database Administrators</a></td>
+        <td><a class="footer-link" href="/">photography</a></td>
+        <td><a class="footer-link" href="/">English Language &amp; Usage</a></td>
+        <td><a class="footer-link" href="/">Mathematics</a></td>
+        <td><a class="footer-link" href="/">Stack Apps</a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+      </tr>
+
+      <tr>
+        <td><a class="footer-link" href="/">Server Fault</a></td>
+        <td><a class="footer-link" href="/">Unix &amp; Linix</a></td>
+        <td><a class="footer-link" href="/">Drupal Answers</a></td>
+        <td><a class="footer-link" href="/">Science Fiction &amp; Fantasy</a></td>
+        <td><a class="footer-link" href="/">Skeptics</a></td>
+        <td><a class="footer-link" href="/">Cross Validated Stats</a></td>
+        <td><a class="footer-link" href="/">Meta Stack Exchange</a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+      </tr>
+
+      <tr>
+        <td><a class="footer-link" href="/">Super User</a></td>
+        <td><a class="footer-link" href="/">Ask Different (Apple)</a></td>
+        <td><a class="footer-link" href="/">Sharepoint</a></td>
+        <td><a class="footer-link" href="/">Graphic Design</a></td>
+        <td><a class="footer-link" href="/">Mi Yodeya (Judaism)</a></td>
+        <td><a class="footer-link" href="/">Theoretical Computer Science</a></td>
+        <td><a class="footer-link" href="/">Area 51</a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+      </tr>
+
+      <tr>
+        <td><a class="footer-link" href="/">Web Applications</a></td>
+        <td><a class="footer-link" href="/">Wordpress Development</a></td>
+        <td><a class="footer-link" href="/">User Experience</a></td>
+        <td><a class="footer-link" href="/">Movies &amp; TV</a></td>
+        <td><a class="footer-link" href="/">travel</a></td>
+        <td><a class="footer-link" href="/">Physics</a></td>
+        <td><a class="footer-link" href="/">Stack Overflow Careers</a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+      </tr>
+
+      <tr>
+        <td><a class="footer-link" href="/">Ask Ubuntu</a></td>
+        <td><a class="footer-link" href="/">Geographic</a></td>
+        <td><a class="footer-link" href="/">Mathematica</a></td>
+        <td><a class="footer-link" href="/">Seasoned Advice (cooking)</a></td>
+        <td><a class="footer-link" href="/">Christianity</a></td>
+        <td><a class="footer-link" href="/">Math Overflow</a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+      </tr>
+
+      <tr>
+        <td><a class="footer-link" href="/">Game Development</a></td>
+        <td><a class="footer-link" href="/">Electrical Engineering</a></td>
+        <td><a class="footer-link" href="/">ExpressionEngine Answers</a></td>
+        <td><a class="footer-link" href="/">Personal Finance &amp; Money</a></td>
+        <td><a class="footer-link" href="/">Role Playing Games</a></td>
+        <td><a class="footer-link" href="/">Biology</a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+      </tr>
+
+      <tr>
+        <td><a class="footer-link" href="/">Tex Latex</a></td>
+        <td><a class="footer-link" href="/">Information Security</a></td>
+        <td><a class="footer-link" href="/">IT</a></td>
+        <td><a class="footer-link" href="/">Academia</a></td>
+        <td><a class="footer-link" href="/">more</a></td>
+        <td><a class="footer-link" href="/">more</a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+        <td><a class="footer-link" href="/"></a></td>
+      </tr>
+
+    </table>
+
+    <div class="legal">
+      <p>site design / logo © 2015 Stack Exchange Inc; user contributions licensed under cc by-sa 3.0 with attribution required</p>
+      <p>rev 2015.9.15.2824</p>
+    </div>
+  </div>
 </body>
 </html>

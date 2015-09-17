@@ -1,5 +1,4 @@
 before "/:commentable_type/:commentable_id/comment*" do
-  # @commentable = Comment.find_by(commentable_type: params[:commentable_type], commentable_id: params[:commentable_id])
   if params[:commentable_type] == "Question"
     @commentable = Question.find_by(params[:commentable_id])
     @question = @commentable
@@ -11,7 +10,6 @@ before "/:commentable_type/:commentable_id/comment*" do
 
 end
 
-# this route is explicitly
 get "/:commentable_type/:commentable_id/comments/new" do
   if authenticated?
     if request.xhr?
@@ -110,3 +108,4 @@ delete  "/:commentable_type/:commentable_id/comments/:comment_id" do
     end
   end
 end
+

@@ -16,24 +16,27 @@ get '/questions/:id' do
 end
 
 post '/questions' do
-  # p params[:question].merge(session[:user_id])
-  # p params[:question].merge("user_id" => 1)
   Question.create(params[:question].merge("user_id" => 1))
 
   redirect '/'
 end
 
-post '/questions/:id/votes/1' do
+get '/questions/:id/votes/:value' do
   votes = Question.find_by(id: params[:id]).votes
-  votes.each do |vote|
-    if vote.user_id == session[:user_id]
-      return
-    else
-      Vote.create(user_id: session[:user_id], votable_id: 1,votable_type: "Question", value: 1)
-    end
-  end
+  destroy_old_vote_and_create_new_vote(votes,session[:user_id],params[:value])
+
+  redirect "/questions/#{params[:id]}"
 end
 
-post '/questions/:id/votes/-1' do
+# get '/questions/:id/votes/-1' do
+#   votes = Question.find_by(id: params[:id]).votes
+#   destroy_old_vote_and_create_new_vote(votes,session[:user_id],-1)
 
+#   redirect "/questions/#{params[:id]}"
+# end
+
+post '/questions/:id/answers' do
+  Answer.create(user_id: session[:user_id], text: params["answer-text"],question_id: params[:id])
+
+  redirect "/questions/#{params[:id]}"
 end
