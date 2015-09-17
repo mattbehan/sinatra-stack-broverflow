@@ -1,1 +1,76 @@
-<p>Hi</p>
+<nav class="main-nav">
+  <a href="https://stackexchange.com/"><img src="/images/stack-exchange-icon.png"></a>
+  <div class="nav-links">
+    <a href="/profile"><img src="/images/default-profile-picture.jpeg"></a>
+    <a href="/">help</a>
+  </div>
+
+  <form>
+    <input type="text" name="search" placeholder="search">
+  </form>
+</nav>
+
+<div class="container">
+  <div id="header">
+    <img src="/images/stack-overflow-logo.png">
+    <div id="header-links">
+      <a href="/">Questions</a>
+      <a href="/">Tags</a>
+      <a href="/">Users</a>
+      <a href="/">Badges</a>
+      <a href="/">Unanswered</a>
+      <a href="/">Ask Question</a>
+    </div>
+  </div>
+
+  <ul class="tabs">
+    <li><a href="/users/profile">Profile</a></li>
+    <li class="active"><a href="#">Activity</a></li>
+    <li class="active"><a href="#">Edit Profile &amp; Settings</a></li>
+  </ul>
+
+  <div id="show">
+    <a href="/"></a>
+    <h2><%= current_user.display_name %></h2>
+    <a href="/profile"><img src="/images/default-profile-picture.jpeg"></a>
+  </div>
+
+  <div id="boxes">
+    <div class="full-box">
+      <p>Reputation is how the community thanks you</p>
+
+      <p class="sub">When users upvote your helpful posts, you'll earn reputation and unlock new privileges.</p>
+
+      <p>Learn more about <a href="/">reputation</a> and <a href="/">privileges</a></p>
+    </div>
+
+    <div class="full-box">
+      <p>Earn badges for helpful actions</p>
+
+      <p class="sub">Badges are bits of digital flair that you get when you participate in especially helpful ways.</p>
+
+      <button type="button">Take the Tour and earn your first badge</button>
+    </div>
+
+    <div class="half-box">
+      <p>Measure your impact</p>
+
+      <p class="sub">Your posts and helpful actions here help hundreds or thousands of people searching for help.</p>
+    </div>
+  </div>
+
+  <ul class="tabs">
+    <li class="attributes"><a href="/">summary</a></li>
+    <li><a href="/">answers</a></li>
+    <li><a href="/">questions</a></li>
+    <li><a href="/">tags</a></li>
+    <li><a href="/">badges</a></li>
+    <li><a href="/">favorites</a></li>
+    <li><a href="/">bounties</a></li>
+    <li><a href="/">reputation</a></li>
+    <li><a href="/">all actions</a></li>
+    <li><a href="/">responses</a></li>
+    <li><a href="/">votes</a></li>
+  </ul>
+
+</div>

@@ -15,11 +15,7 @@ class Answer < ActiveRecord::Base
     User.find_by(id: user_id).votes.count
   end
 
-  def find_votes_for_answer
-    counter = 0
-    self.votes.each do |vote|
-      counter += vote.value
-    end
-    counter
+  def sum_votes_for_answer
+    votes.sum(:value)
   end
 end
