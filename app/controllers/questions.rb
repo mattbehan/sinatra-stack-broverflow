@@ -24,16 +24,33 @@ post '/questions' do
 end
 
 post '/questions/:id/votes/1' do
-  votes = Question.find_by(id: params[:id]).votes
-  votes.each do |vote|
-    if vote.user_id == session[:user_id]
-      return
-    else
-      Vote.create(user_id: session[:user_id], votable_id: 1,votable_type: "Question", value: 1)
-    end
-  end
+  vote = Question.find_by(id: params[:id]).votes.create(user_id: session[:user_id], value: 1)
+  # user = User.find_by(id: session[:user_id])
+  # user.votes << vote
+
+  # votes = Question.find_by(id: params[:id]).votes
+  # votes.each do |vote|
+  #   if vote.user_id == session[:user_id]
+  #     return
+  #   else
+  #     Vote.create(user_id: session[:user_id], votable_id: 1,votable_type: "Question", value: 1)
+
+  #     redirect "/questions/#{params[:id]}"
+  #   end
+  # end
 end
 
 post '/questions/:id/votes/-1' do
+  vote = Question.find_by(id: params[:id]).votes.create(user_id: session[:user_id], value: -1)
+  # user = User.find_by(id: session[:user_id])
+  # user.votes << vote
 
+  # votes = Question.find_by(id: params[:id]).votes
+  # votes.each do |vote|
+  #   if vote.user_id == session[:user_id]
+  #     return
+  #   else
+  #     Vote.create(user_id: session[:user_id], votable_id: 1,votable_type: "Question", value: -1)
+  #   end
+  # end
 end
