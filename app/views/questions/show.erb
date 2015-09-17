@@ -20,8 +20,17 @@
   <!-- Reputation -->
   <p>Reputation: <%=  @question.find_author_reputation(@question.user_id) %></p>
   <br>
+
+  <!-- questions comments -->
+  <% if !@question.comments.empty? %>
+    <% @question.comments.each do |comment| %>
+    <%= erb :"comments/_show", layout: false, locals: {comment: comment, commentable: @question} %>
+    <% end %>
+    <% end %>
+  <p>
+
   <!-- Add a comment -->
-  <a href="#">add a comment</a>
+  <a href="/Question/<%=@question.id%>/comments/new">add a comment</a>
 </div>
 <!-- Answers -->
 <div class="container">
@@ -48,6 +57,12 @@
       <br>
       <br>
       <!-- Add a comment -->
+        <% if !answer.comments.empty? %>
+    <% answer.comments.each do |comment| %>
+    <%= erb :"comments/_show", layout: false, locals: {comment: comment, commentable: answer} %>
+    <% end %>
+    <% end %>
+
       <a href="#">add a comment</a>
       <br>
     </div>
