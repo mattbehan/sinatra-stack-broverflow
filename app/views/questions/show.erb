@@ -2,13 +2,13 @@
 
 <!-- Questions -->
 <h1><%= @question.title %></h1>
-<div class="container">
+<div class="container" id="">
   <!-- Stats -->
-  <a href="/questions/<%= @question.id %>/votes/1">Upvote</a>
+  <a class="upvote" href="/questions/<%= @question.id %>/votes/1">Upvote</a>
   <p>
     <%= @question.sum_votes_for_question %>
   </p>
-  <a href="/questions/<%= @question.id %>/votes/-1">Downvote</a>
+  <a class="downvote" href="/questions/<%= @question.id %>/votes/-1">Downvote</a>
   <!-- Question body -->
   <p> <%= @question.body %></p>
   <!-- Taggings -->

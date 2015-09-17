@@ -463,7 +463,12 @@ h4{
   vertical-align: top;
 }
 
-
+.has_answer_background {
+  background-color: #75845c
+}
+.white_text {
+  color: white;
+}
 
 
 

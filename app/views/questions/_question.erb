@@ -6,12 +6,28 @@
       </div>
       <div>votes</div>
     </div>
-    <div class="answered">
+
+    <% if question.find_answers_for_question(question.id) != 0 %>
+    <div class="answered has_answer_background">
       <div class="stat-counts">
+        <span class="white_text"><%= question.find_answers_for_question(question.id) %></span>
+      </div>
+      <div class="white_text">answers</div>
+    </div>
+    <% else %>
+      <div class="answered">
+        <div class="stat-counts">
+          <span><%= question.find_answers_for_question(question.id) %></span>
+        </div>
+        <div>answers</div>
+      </div>
+    <% end %>
+      <!-- <div class="stat-counts">
         <span><%= question.find_answers_for_question(question.id) %></span>
       </div>
       <div>answers</div>
-    </div>
+    </div> -->
+
     <div class="views">
       <div class="stat-counts">
         <span>0</span>
