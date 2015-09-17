@@ -59,3 +59,21 @@ include Faker
     votable_id: id
     )
 }
+
+i=1
+30.times do
+  Tag.create(
+    name: Faker::Company.catch_phrase
+    )
+  j=0
+  4.times do
+    Tagging.find_or_create_by(
+      tag_id: [i+j, 30].min,
+      question_id: i
+      )
+    j+=1
+  end
+  i+=1
+end
+
+bro_names = ["Brobama", "Edgar Allen Bro", "Broseidon", "Junior BroGrammer", "chadbrochill69", "aBROham Lincoln", "Brozo the clown", "ScottBroscius32", "Brobi-wan Kenobi", "TonyBromo11", "Blake", "Brody", "Brodo Baggins", "Brojangles", "Skyler", "Tad", "Kelly", "Carson", "laxxx00"]
