@@ -9,5 +9,11 @@ end
 
 get '/users/:id' do
   @user = User.find_by(id: params[:id])
-  erb :"users/show"
+  if !current_user
+    redirect "/sessions/login"
+  elsif current_user.id.to_i != params[:id].to_i
+    redirect "users/#{current_user.id}"
+  else
+    erb :"users/show"
+  end
 end
