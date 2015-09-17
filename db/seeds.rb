@@ -4,7 +4,7 @@ include Faker
     new_user = User.create(
     display_name: Faker::Internet.user_name,
     email: Faker::Internet.free_email,
-    password_hash: ( Faker::Internet.password(16)[0].upcase ) ,
+    password: ( Faker::Internet.password(16)[0].upcase ) ,
     birthday: 40.years.ago,
     bio: Faker::Lorem.paragraph,
     website_link: Faker::Internet.url
