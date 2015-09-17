@@ -23,7 +23,7 @@ class Question < ActiveRecord::Base
   end
 
   def find_author_reputation(user_id)
-    User.find_by(id: user_id).votes.count
+    # User.find_by(id: user_id).votes.count
   end
 
   def sum_votes_for_question

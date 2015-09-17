@@ -57,8 +57,7 @@
 <div class="container">
   <h2>Your Answer</h2>
 
-  <form action="/answers" method="post">
-    <input type="hidden" name="question_id" value=<%= @question.id %>>
+  <form action="/questions/<%=@question.id%>/answers" method="post">
     <textarea name="answer-text" placeholder="text"></textarea>
     <br>
     <input id="submit-button" type="submit" value="Submit Answer">

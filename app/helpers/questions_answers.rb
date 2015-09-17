@@ -8,6 +8,7 @@ def create_if_different_vote_value(votes,session,value)
         duplicate_checker = true
         votes.create(user_id: session, value: value)
       end
+      return
     end
   end
   if duplicate_checker == false

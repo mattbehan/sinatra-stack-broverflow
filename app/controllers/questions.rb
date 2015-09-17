@@ -21,16 +21,22 @@ post '/questions' do
   redirect '/'
 end
 
-get '/questions/:id/votes/1' do
+get '/questions/:id/votes/:value' do
   votes = Question.find_by(id: params[:id]).votes
-  destroy_old_vote_and_create_new_vote(votes,session[:user_id],1)
+  destroy_old_vote_and_create_new_vote(votes,session[:user_id],params[:value])
 
   redirect "/questions/#{params[:id]}"
 end
 
-get '/questions/:id/votes/-1' do
-  votes = Question.find_by(id: params[:id]).votes
-  destroy_old_vote_and_create_new_vote(votes,session[:user_id],-1)
+# get '/questions/:id/votes/-1' do
+#   votes = Question.find_by(id: params[:id]).votes
+#   destroy_old_vote_and_create_new_vote(votes,session[:user_id],-1)
+
+#   redirect "/questions/#{params[:id]}"
+# end
+
+post '/questions/:id/answers' do
+  Answer.create(user_id: session[:user_id], text: params["answer-text"],question_id: params[:id])
 
   redirect "/questions/#{params[:id]}"
 end
