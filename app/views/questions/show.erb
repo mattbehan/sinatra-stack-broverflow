@@ -2,13 +2,13 @@
 
 <!-- Questions -->
 <h1><%= @question.title %></h1>
-<div class="container">
+<div class="questions">
   <!-- Stats -->
-  <a href="/questions/<%= @question.id %>/votes/1">Upvote</a>
+  <a href="/questions/<%= @question.id %>/votes/1" value = "1" class="upvote-button" id="<%=@question.id%>">Upvote</a>
   <p>
     <%= @question.sum_votes_for_question %>
   </p>
-  <a href="/questions/<%= @question.id %>/votes/-1">Downvote</a>
+  <a href="/questions/<%= @question.id %>/votes/-1" value = "-1" class="downvote-button" id="<%=@question.id%>">Downvote</a>
   <!-- Question body -->
   <p> <%= @question.body %></p>
   <!-- Taggings -->
@@ -27,13 +27,13 @@
 <div class="container">
   <h4><%= @answers.length %> Answers</h4>
   <% @answers.each do |answer| %>
-    <div class="container">
+    <div class="answers">
       <!-- Stats -->
-      <a href="/answers/<%= answer.id %>/votes/1">Upvote</a>
+      <a href="/answers/<%= answer.id %>/votes/1" value = "1" class="upvote-button" id="<%=@question.id%>">Upvote</a>
       <p>
         <%= answer.sum_votes_for_answer %>
       </p>
-      <a href="/answers/<%= answer.id %>/votes/-1">Downvote</a>
+      <a href="/answers/<%= answer.id %>/votes/-1" value = "-1" class="downvote-button" id="<%=@question.id%>">Downvote</a>
       <br>
       <!-- Best Answer -->
       <a href="">Choose as Best Answer</a>
