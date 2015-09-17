@@ -1,12 +1,11 @@
 get '/' do
-  erb :"index"
+  erb :"/questions/index"
 end
 
 get '/restricted_area' do
   if session[:user_id] == nil
     redirect '/'
   else
-    erb :"restricted_area"
+    redirect '/questions'
   end
-  redirect '/questions'
 end
