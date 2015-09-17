@@ -8,4 +8,5 @@ get '/restricted_area' do
   else
     erb :"restricted_area"
   end
+  redirect '/questions'
 end

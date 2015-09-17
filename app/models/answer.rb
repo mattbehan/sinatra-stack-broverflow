@@ -7,4 +7,15 @@ class Answer < ActiveRecord::Base
 
   validates :text, presence: true
 
+  def find_display_name(user_id)
+    User.find_by(id: user_id).display_name
+  end
+
+  def find_votes_for_answer
+    counter = 0
+    self.votes.each do |vote|
+      counter += vote.value
+    end
+    counter
+  end
 end
