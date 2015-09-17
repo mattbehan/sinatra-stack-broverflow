@@ -4,6 +4,8 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
   has_many :answers
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   validates :title, presence: true
   validates :body, presence: true
@@ -17,14 +19,10 @@ class Question < ActiveRecord::Base
   end
 
   def find_taggings_for_question(question_id)
-    Taggings.find_by(question_id: question_id)
+    Tagging.where(question_id: question_id)
   end
 
-  def find_votes_for_question
-    counter = 0
-    self.votes.each do |vote|
-      counter += vote.value
-    end
-    counter
+  def sum_votes_for_question
+    votes.sum(:value)
   end
 end
