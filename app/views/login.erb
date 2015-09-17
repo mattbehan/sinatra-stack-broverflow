@@ -12,15 +12,13 @@
 
   <div id="form-container">
     <div id="social-login-buttons">
-      <img src="sign-in-with-google.png" alt="Sign in with Google">
-      <img src="sign-in-with-facebook.png" alt="Sign in with Facebook">
+      <img src="/images/sign-in-with-google.png" alt="Sign in with Google">
+      <img src="/images/sign-in-with-facebook.png" alt="Sign in with Facebook">
     </div>
 
     <p id="or">OR</p>
 
-    <form class="auth" method="post" action="/users"><label for="email">Email (required, but never shown)</label>
-      <input type="text" name="user[email]">
-      <br>
+    <form class="auth" method="post" action="/login">
 
       <label for="email">Email (required, but never shown)</label>
       <input id="email" type="text" name="user[email]">
@@ -39,7 +37,7 @@
   </div>
 
   <div id="change">
-    <p id="terms">Don't have an account? <a id="signup-options" href="/">Sign up</a></p>
+    <p id="terms">Don't have an account? <a id="signup-options" href="/users/new">Sign up</a></p>
   </div>
 
 </div>
