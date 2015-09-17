@@ -5,7 +5,7 @@ end
 post '/users' do
   @user = User.create(params[:user])
   if @user.save
-    redirect "/"
+    erb :"confirm-account"
   else
     erb :"users/new"
   end
