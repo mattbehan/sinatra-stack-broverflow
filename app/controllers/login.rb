@@ -1,5 +1,5 @@
 get '/login' do
-  erb :login
+  erb :"login"
 end
 
 post '/login' do
@@ -10,7 +10,7 @@ post '/login' do
     redirect "/users/#{user.id}"
   else
     @error = "No User Found"
-    erb :login
+    erb :"login"
   end
 end
 
