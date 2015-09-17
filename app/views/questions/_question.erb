@@ -1,0 +1,33 @@
+<div class="question-summary">
+  <div class="stats-container">
+    <div class="votes">
+      <div class="stat-counts">
+        <span><%= question.sum_votes_for_question %></span>
+      </div>
+      <div>votes</div>
+    </div>
+    <div class="answered">
+      <div class="stat-counts">
+        <span><%= question.find_answers_for_question(question.id) %></span>
+      </div>
+      <div>answers</div>
+    </div>
+    <div class="views">
+      <div class="stat-counts">
+        <span>0</span>
+      </div>
+      <div>views</div>
+    </div>
+  </div>
+  <div class="summary">
+    <h3><a href="/questions/<%= question.id %>"><%= question.title %></a></h3>
+    <div class="tags"><a href="">computer-science</a></div>
+    <div class="started">
+      <a href="" class="started-link">asked
+        <span class="relativetime">48 secs ago</span>
+      </a>
+      <a href="/users/"<%= question.user_id %>><%= question.find_display_name(question.user_id) %></a>
+      <span class="reputation-score">115</span>
+    </div>
+  </div>
+</div>
