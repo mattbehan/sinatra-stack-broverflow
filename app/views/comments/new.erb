@@ -1,11 +1,7 @@
-<!-- expecting this form to be called as a partial from  -->
+<form class="new-comment-form" action="/<%=@commentable.type%>/<%=@commentable.id%>/comments" method="post">
+  <label for="comment">Enter your comment</label>
+  <input id="comment"type="text" name="comment_text">
 
-<form action="/questions" method="post">
-  <label for="title">Title: </label>
-  <input type="text" name="question[title]">
-  <input name="question[body]" placeholder="enter text here">
-  <label for="tags">Tag:</label>
-  <input type="text" name="tags">
-
-  <input type="submit" value="Post your Question">
+  <input type="submit" value="Submit">
 </form>
+

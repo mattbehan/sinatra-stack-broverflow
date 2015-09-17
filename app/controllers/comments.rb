@@ -24,7 +24,7 @@ get "/:commentable_type/:commentable_id/comments/new" do
       status 401
       "You must log in to write comments"
     else
-      @commenting_but_not_logged_in = true
+      @not_authenticated = true
       erb :"question/show"
     end
 end
@@ -45,19 +45,68 @@ post "/:commentable_type/:commentable_id/comments" do
       status 401
       "You must log in to write comments"
     else
-      @commenting_but_not_logged_in = true
+      @not_authenticated = true
       erb :"question/show"
     end
   end
 end
 
-put "/:commentable_type/:commentable_id/comments/:id/edit" do
+get "/:commentable_type/:commentable_id/comments/:comment_id/edit" do
   @comment = Comment.find(params[:comment_id])
   if authorized?(@comment.id)
-    @comment
+    erb :"comments/edit"
+  else
+    @not_authorized = true
+    erb :"question/show"
+  end
+end
+
+put "/:commentable_type/:commentable_id/comments/:comment_id" do
+  @comment = Comment.find(params[:comment_id])
+  if authorized?(@comment.id)
+    valid_edit = @comment.update_attributes(text: params[:comment_text])
+    if valid_edit
+      if request.xhr?
+        content_type :json
+        @comment.to_json
+      else
+        redirect "/questions/#{@question.id}"
+    else
+      if request.xhr?
+        status 422
+        "Invalid comment data. Text must not be blank."
+      else
+        # have to create the erb for comments/show and do error handling
+        erb :"question/show"
+    end
+  else
+    if request.xhr?
+      status 403
+      "You do not have permission to edit this"
+    else
+      @not_authorized = true
+      erb :"questions/show"
+    end
+  end
+
 end
 
 delete  "/:commentable_type/:commentable_id/comments/:comment_id" do
   @comment = Comment.find(params[:comment_id])
   if authorized?(@comment.id)
+    if request.xhr?
+      x = @comment.destroy
+    else
+      @comment.destroy
+      redirect "/questions/#{@question.id}"
+    end
+  else
+    if request.xhr?
+      status 403
+      "You do not have permission to delete this"
+    else
+      @not_authorized = true
+      erb :"questions/show"
+    end
+  end
 end

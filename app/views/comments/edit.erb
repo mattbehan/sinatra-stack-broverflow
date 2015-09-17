@@ -1,0 +1,6 @@
+<div class="comment-edit-area" id="comment<%= @comment.id %>">
+  <form class="comment-edit-form" method="post" action="/<%= @commentable.type %>/<%= @commentable.id %>/comments/<%= @comment.id %>">
+    <input type="hidden" name="_method" value="put"/>
+    <textarea class="comment-edit-text" id="" name="comment_text" value="@comment.text"></textarea>
+  </form>
+</div>
