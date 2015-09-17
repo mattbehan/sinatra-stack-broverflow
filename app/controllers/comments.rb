@@ -1,16 +1,16 @@
 before "/:commentable_type/:commentable_id/comment*" do
   if params[:commentable_type] == "Question"
-    @commentable = Question.find_by(params[:commentable_id])
+    @commentable = Question.find(params[:commentable_id])
     @question = @commentable
   else
-    @commentable = Answer.find_by(params[:commentable_id])
+    @commentable = Answer.find(params[:commentable_id])
     @question = @commentable.question
-    @answers = @question.answers
   end
-
+  @answers = @question.answers
 end
 
 get "/:commentable_type/:commentable_id/comments/new" do
+  @commment = Comment.new
   if authenticated?
     if request.xhr?
       erb :"comments/new", layout: false
@@ -23,8 +23,9 @@ get "/:commentable_type/:commentable_id/comments/new" do
       "You must log in to write comments"
     else
       @not_authenticated = true
-      erb :"question/show"
+      erb :"questions/show"
     end
+  end
 end
 
 post "/:commentable_type/:commentable_id/comments" do
@@ -38,6 +39,14 @@ post "/:commentable_type/:commentable_id/comments" do
       else
         redirect "/questions/#{@question.id}"
       end
+    else
+      if request.xhr?
+        status 422
+        content_type :json
+        @comment.to_json
+      else
+      end
+    end
   else
     if request.xhr?
       status 401
@@ -51,17 +60,17 @@ end
 
 get "/:commentable_type/:commentable_id/comments/:comment_id/edit" do
   @comment = Comment.find(params[:comment_id])
-  if authorized?(@comment.id)
+  if authorized?(@comment.user_id)
     erb :"comments/edit"
   else
     @not_authorized = true
-    erb :"question/show"
+    erb :"questions/show"
   end
 end
 
 put "/:commentable_type/:commentable_id/comments/:comment_id" do
   @comment = Comment.find(params[:comment_id])
-  if authorized?(@comment.id)
+  if authorized?(@comment.user_id)
     valid_edit = @comment.update_attributes(text: params[:comment_text])
     if valid_edit
       if request.xhr?
@@ -69,13 +78,15 @@ put "/:commentable_type/:commentable_id/comments/:comment_id" do
         @comment.to_json
       else
         redirect "/questions/#{@question.id}"
+      end
     else
       if request.xhr?
         status 422
         "Invalid comment data. Text must not be blank."
       else
         # have to create the erb for comments/show and do error handling
-        erb :"question/show"
+        erb :"questions/show"
+      end
     end
   else
     if request.xhr?
@@ -86,12 +97,11 @@ put "/:commentable_type/:commentable_id/comments/:comment_id" do
       erb :"questions/show"
     end
   end
-
 end
 
 delete  "/:commentable_type/:commentable_id/comments/:comment_id" do
   @comment = Comment.find(params[:comment_id])
-  if authorized?(@comment.id)
+  if authorized?(@comment.user_id)
     if request.xhr?
       x = @comment.destroy
     else

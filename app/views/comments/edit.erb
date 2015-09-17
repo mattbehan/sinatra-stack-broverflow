@@ -1,6 +1,10 @@
 <div class="comment-edit-area" id="comment<%= @comment.id %>">
-  <form class="comment-edit-form" method="post" action="/<%= @commentable.type %>/<%= @commentable.id %>/comments/<%= @comment.id %>">
+  <form class="comment-edit-form" method="post" action="/<%= @commentable.class.name %>/<%= @commentable.id %>/comments/<%= @comment.id %>">
     <input type="hidden" name="_method" value="put"/>
-    <textarea class="comment-edit-text" id="" name="comment_text" value="@comment.text"></textarea>
+    <textarea class="comment-edit-text" name="comment_text"><%=@comment.text%></textarea>
+    <input type="submit" value="Commit changes" />
   </form>
+  <form class="comment-delete" method="post" action="/<%= @commentable.class.name %>/<%= @commentable.id %>/comments/<%= @comment.id %>">
+      <input type="hidden" name="_method" value="delete"/>
+      <input type="submit" value="delete"/>
 </div>

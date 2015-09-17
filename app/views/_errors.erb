@@ -1,0 +1,5 @@
+  <% if !object.errors.messages.empty? %>
+    <% object.errors.messages.each do |error_message| %>
+    <p><%= error_message %> <p>
+    <%end%>
+  <%end%>

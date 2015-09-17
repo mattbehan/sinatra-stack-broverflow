@@ -2,11 +2,15 @@
    <span class="comment-text"> <%= @comment.text %> - </span> <span class="comment-user"><a href="/users/<%= @user.id %>"> <%= @user.display_name %> </a>
    <%= @comment.created_at %>
    <%if @user.authenticated?(@comment.id)%>
-    <a href="/<%=@commentable.type%>/<%=@commentable.id%>/comments/<%=@comment.id%>/edit">edit button </a>
-    <form class="comment-delete">
+    <a href="/<%=@commentable.class.name%>/<%=@commentable.id%>/comments/<%=@comment.id%>/edit">edit button </a>
+    <form class="comment-delete" method="post" action="/<%= @commentable.class.name %>/<%= @commentable.id %>/comments/<%= @comment.id %>">
       <input type="hidden" name="_method" value="delete"/>
       <input type="submit" value="delete"/>
     </form>
     <%end%>
   </span>
 </div>
+
+<form class="comment-delete" >
+      <input type="hidden" name="_method" value="delete" />
+      <input type="submit" value="delete"/>

@@ -23,3 +23,7 @@ def destroy_old_vote_and_create_new_vote(votes,session,value)
     votes.create(user_id: session, value: value)
   end
 end
+
+def errors_exist?
+  !self.errors.messages.empty?
+end
