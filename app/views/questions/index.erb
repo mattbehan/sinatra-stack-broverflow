@@ -7,7 +7,7 @@
   <% @questions.each do |question| %>
     <div class="container">
       <!-- Stats -->
-      <p> qvotes:<%= question.find_votes_for_question %> </p>
+      <p> qvotes:<%= question.sum_votes_for_question %> </p>
       <p> #ofans:<%= question.find_answers_for_question(question.id) %> </p>
 
       <!-- Question -->

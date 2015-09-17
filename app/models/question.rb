@@ -19,14 +19,10 @@ class Question < ActiveRecord::Base
   end
 
   def find_taggings_for_question(question_id)
-    Taggings.find_by(question_id: question_id)
+    Tagging.where(question_id: question_id)
   end
 
-  def find_votes_for_question
-    counter = 0
-    self.votes.each do |vote|
-      counter += vote.value
-    end
-    counter
+  def sum_votes_for_question
+    votes.sum(:value)
   end
 end

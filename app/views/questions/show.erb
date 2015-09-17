@@ -6,7 +6,7 @@
   <!-- Stats -->
   <a href="/questions/<%= @question.id %>/votes/1">Upvote</a>
   <p>
-    <%= @question.find_votes_for_question %>
+    <%= @question.sum_votes_for_question %>
   </p>
   <a href="questions/<%= @question.id %>/votes/-1">Downvote</a>
   <!-- Question body -->
