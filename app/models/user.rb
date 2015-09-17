@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :display_name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password_hash, presence: true
+  validate :valid_new_password
 
 
   def password
@@ -18,7 +19,7 @@ class User < ActiveRecord::Base
 
   def password=(new_password)
     @new_password = new_password
-    return unless new_password && new_password.length > 0
+    valid_new_password
     @password = Password.create(new_password)
     self.password_hash = @password
   end

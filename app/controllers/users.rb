@@ -3,7 +3,7 @@ get '/users/new' do
 end
 
 post '/users' do
-  @user = User.create(params[:user])
+  @user = User.new(params[:user])
   if @user.save
     erb :"confirm-account"
   else
