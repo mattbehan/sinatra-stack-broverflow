@@ -11,6 +11,10 @@ class Answer < ActiveRecord::Base
     User.find_by(id: user_id).display_name
   end
 
+  def find_author_reputation(user_id)
+    User.find_by(id: user_id).votes.count
+  end
+
   def find_votes_for_answer
     counter = 0
     self.votes.each do |vote|

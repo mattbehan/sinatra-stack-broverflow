@@ -20,6 +20,10 @@ class Question < ActiveRecord::Base
     Taggings.where(question_id: question_id)
   end
 
+  def find_author_reputation(user_id)
+    User.find_by(id: user_id).votes.count
+  end
+
   def find_votes_for_question
     counter = 0
     self.votes.each do |vote|

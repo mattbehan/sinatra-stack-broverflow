@@ -5,7 +5,7 @@ end
 post '/users' do
   @user = User.new(params[:user])
   if @user.save
-    erb :"confirm-account"
+    erb :"users/confirm-account"
   else
     erb :"users/new"
   end

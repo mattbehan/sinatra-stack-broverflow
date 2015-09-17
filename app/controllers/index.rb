@@ -1,5 +1,5 @@
 get '/' do
-  erb :"/questions/index"
+  redirect '/questions'
 end
 
 get '/restricted_area' do

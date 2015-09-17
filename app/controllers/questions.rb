@@ -16,41 +16,21 @@ get '/questions/:id' do
 end
 
 post '/questions' do
-  # p params[:question].merge(session[:user_id])
-  # p params[:question].merge("user_id" => 1)
   Question.create(params[:question].merge("user_id" => 1))
 
   redirect '/'
 end
 
-post '/questions/:id/votes/1' do
-  vote = Question.find_by(id: params[:id]).votes.create(user_id: session[:user_id], value: 1)
-  # user = User.find_by(id: session[:user_id])
-  # user.votes << vote
+get '/questions/:id/votes/1' do
+  votes = Question.find_by(id: params[:id]).votes
+  destroy_old_vote_and_create_new_vote(votes,session[:user_id],1)
 
-  # votes = Question.find_by(id: params[:id]).votes
-  # votes.each do |vote|
-  #   if vote.user_id == session[:user_id]
-  #     return
-  #   else
-  #     Vote.create(user_id: session[:user_id], votable_id: 1,votable_type: "Question", value: 1)
-
-  #     redirect "/questions/#{params[:id]}"
-  #   end
-  # end
+  redirect "/questions/#{params[:id]}"
 end
 
-post '/questions/:id/votes/-1' do
-  vote = Question.find_by(id: params[:id]).votes.create(user_id: session[:user_id], value: -1)
-  # user = User.find_by(id: session[:user_id])
-  # user.votes << vote
+get '/questions/:id/votes/-1' do
+  votes = Question.find_by(id: params[:id]).votes
+  destroy_old_vote_and_create_new_vote(votes,session[:user_id],-1)
 
-  # votes = Question.find_by(id: params[:id]).votes
-  # votes.each do |vote|
-  #   if vote.user_id == session[:user_id]
-  #     return
-  #   else
-  #     Vote.create(user_id: session[:user_id], votable_id: 1,votable_type: "Question", value: -1)
-  #   end
-  # end
+  redirect "/questions/#{params[:id]}"
 end
