@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css">
+    <link rel="stylesheet" type="text/css" href="../css/question_show.css">
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-wrapper">
+        <div class="topbar-links">
+          <div class="links-container">
+            <span class="topbar-menu-links">
+              <a href="">sign up</a>
+              <a href="">login</a>
+            </span>
+          </div>
+          <div class="search-container">
+            <form id="search" action="/search" method="GET" autocomplete="off">
+              <input name="q" type="text" placeholder="search" value tabindex="1" autocomplete="off" maxlength="240" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    <header>
+      <br class="cbt">
+      <div id="hlogo">
+        <a href="/">Stack Overflow</a>
+      </div>
+      <div id="hmenus">
+        <div class="mainnavs">
+          <ul>
+            <li><a id="nav-questions" href="/questions">Questions</a></li>
+            <li><a id="nav-tags" href="/tags">Tags</a></li>
+            <li><a id="nav-users" href="/users">Users</a></li>
+            <li><a id="nav-badges" href="/help/badges">Badges</a></li>
+            <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+            <li><a id="nav-askquestion" href="/questions/ask">Ask Question</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="content">
+      <div id="question-header">
+        <h1><a href="http://stackoverflow.com/questions/32637476/how-to-extract-values-from-json-blob-into-new-columns-in-r-data-frame">How to structure Redux components/containers</a></h1>
+      </div>
+        <div id="mainbar">
+          <div class="question">
+            <table>
+              <tbody>
+                <tr>
+                  <td class="votecell">
+                    <div class="vote">
+                      <a class="vote-up-off">up vote</a>
+                      <span class="vote-count-post">1</span>
+                      <a class="vote-down-off">down vote</a>
+                      <a class="star-off">favorite</a>
+                    </div>
+                  </td>
+                  <td class="postcell">
+                    <div>
+                      <div class="post-text">
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+
+                        <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy.</p>
+
+                        <p>The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their projects again and again. And if she hasn’t been rewritten, then they are still using her. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One</p>
+                      </div>
+                      <div class="post-taglist">
+                        <a href="" class="post-tag">json</a>
+                        <a href="" class="post-tag">ruby</a>
+                      </div>
+                      <table class="fw">
+                        <tbody>
+                          <tr>
+                            <td class="vt">
+                              <div class="post-menu">
+                                <a href="" class="short-link">share</a>
+                                <span class="lsep"></span>
+                                <a href="" class="suggest-edit-post">edit</a>
+                              </div>
+                            </td>
+                            <td align="right" class="post-signature">
+                              <div class="user-info">
+                                <div class="user-action-time">
+                                  <a href="">edited
+                                    <span class="relativetime">2 hours ago</span>
+                                  </a>
+                                  <div class="user-gravatar32"></div>
+                                  <div class="user-details">
+                                    <br>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="post-signature owner">
+                              <div class="user-info">
+                                <div class="user-action-time">
+                                  asked<span class="relativetime">3 hours ago</span>
+                                </div>
+                                <div class="user-gravatar32">
+                                  <a href="">
+                                    <div class="gravatar-wrapper-32">
+                                      <img src="">
+                                    </div>
+                                  </a>
+                                </div>
+                                <div class="user-details">
+                                  <a href="">codejak</a>
+                                  <br>
+                                  <span class="reputation-score">187</span>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="votecell"></td>
+                  <td>
+                    <div class="comments">
+                      <table>
+                        <tbody>
+                          <tr class="comment">
+                            <td>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td class="comment-score">&nbsp;&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td class="comment-text">
+                              <div class="comment-body">
+                                <span class="comment-copy">interesting question. Hope the below helps.</span>
+                                <a href="" class="comment-user">Colonel Beauvel</a>
+                                <span class="comment-date">
+                                  <a class="comment-link" href="">
+                                    <span class="relativetime">2 hours ago</span>
+                                  </a>
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <a class="disabled-link" href="">add a comment</a>
+                      <span class="dno"></span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="answers">
+            <div id="answers-header">
+              <div class="subheader">
+                <h2>2 Answers</h2>
+              </div>
+            </div>
+            <div class="answer">
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="votecell">
+                      <div class="vote">
+                        <a class="vote-up-off">up vote</a>
+                        <span class="vote-count-post">1</span>
+                        <a class="vote-down-off">down vote</a>
+                      </div>
+                    </td>
+                    <td class="answercell">
+                      <div class="post-text">
+                        <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. Drops</p>
+                      </div>
+                      <table class="fw">
+                        <tbody>
+                          <tr>
+                            <td class="vt">
+                              <div class="post-menu">
+                                <a href="" class="short-link">share</a>
+                                <span class="lsep"></span>
+                                <a href="" class="suggest-edit-post">edit</a>
+                              </div>
+                            </td>
+                            <td align="right" class="post-signature">
+                              <div class="user-info">
+                                <div class="user-action-time">
+                                  asked<span class="relativetime">3 hours ago</span>
+                                </div>
+                                <div class="user-gravatar32">
+                                  <a href="">
+                                    <div class="gravatar-wrapper-32">
+                                      <img src="">
+                                    </div>
+                                  </a>
+                                </div>
+                                <div class="user-details">
+                                  <a href="">codejak</a>
+                                  <br>
+                                  <span class="reputation-score">187</span>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="votecell"></td>
+                    <td>
+                      <div class="comments">
+                        <table>
+                          <tbody>
+                            <tr class="comment">
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td class="comment-score">&nbsp;&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                              <td class="comment-text">
+                                <div class="comment-body">
+                                  <span class="comment-copy">interesting question. Hope the below helps.</span>
+                                  <a href="" class="comment-user">Colonel Beauvel</a>
+                                  <span class="comment-date">
+                                    <a class="comment-link" href="">
+                                      <span class="relativetime">2 hours ago</span>
+                                    </a>
+                                  </span>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <a class="disabled-link" href="">add a comment</a>
+                        <span class="dno"></span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="answer">
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="votecell">
+                      <div class="vote">
+                        <a class="vote-up-off">up vote</a>
+                        <span class="vote-count-post">1</span>
+                        <a class="vote-down-off">down vote</a>
+                      </div>
+                    </td>
+                    <td class="answercell">
+                      <div class="post-text">
+                        <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. Drops</p>
+                      </div>
+                      <table class="fw">
+                        <tbody>
+                          <tr>
+                            <td class="vt">
+                              <div class="post-menu">
+                                <a href="" class="short-link">share</a>
+                                <span class="lsep"></span>
+                                <a href="" class="suggest-edit-post">edit</a>
+                              </div>
+                            </td>
+                            <td align="right" class="post-signature">
+                              <div class="user-info">
+                                <div class="user-action-time">
+                                  asked<span class="relativetime">3 hours ago</span>
+                                </div>
+                                <div class="user-gravatar32">
+                                  <a href="">
+                                    <div class="gravatar-wrapper-32">
+                                      <img src="">
+                                    </div>
+                                  </a>
+                                </div>
+                                <div class="user-details">
+                                  <a href="">codejak</a>
+                                  <br>
+                                  <span class="reputation-score">187</span>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="votecell"></td>
+                    <td>
+                      <div class="comments">
+                        <table>
+                          <tbody>
+                            <tr class="comment">
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td class="comment-score">&nbsp;&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                              <td class="comment-text">
+                                <div class="comment-body">
+                                  <span class="comment-copy">interesting question. Hope the below helps.</span>
+                                  <a href="" class="comment-user">Colonel Beauvel</a>
+                                  <span class="comment-date">
+                                    <a class="comment-link" href="">
+                                      <span class="relativetime">2 hours ago</span>
+                                    </a>
+                                  </span>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <a class="disabled-link" href="">add a comment</a>
+                        <span class="dno"></span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div id="sidebar">
+          <div id="jobs-ad"><a href="" class="top">Jobs Near You</a>
+            <ul class="jobs">
+              <li>
+                <a href="http://careers.stackoverflow.com/jobs/94921/sr-software-engineer-in-test-iloan-a-springleaf-brand">Sr. Software Engineer in Test</a><br><div class="company">iLoan, a Springleaf brand</div><div class="location">Chicago, IL</div><span class="tags">ruby-on-rails</span>
+              </li>
+              <li>
+                <a href="http://careers.stackoverflow.com/jobs/94921/sr-software-engineer-in-test-iloan-a-springleaf-brand">Sr. Software Engineer in Test</a><br><div class="company">iLoan, a Springleaf brand</div><div class="location">Chicago, IL</div><span class="tags">ruby-on-rails</span>
+              </li>
+              <a class="bottom" href="http://careers.stackoverflow.com/jobs/location/Chicago%2C%20Illinois%2C%20United%20States?utm_source=stackoverflow.com&utm_medium=ad&utm_campaign=small-sidebar-blue-nearyou">More jobs near Chicago...</a>
+            </ul>
+          </div>
+          <div id="hot-network-questions" class="module">
+            <a href="http://stackoverflow.com/?tab=hot"><h4>Hot Network Questions</h4></a>
+            <ul>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+              <li><a href="http://puzzling.stackexchange.com/questions/22243/art-thou-addressing-me">Art Thou Addressing Me?</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <footer></footer>
+    </div>
+  </body>
+</html>
