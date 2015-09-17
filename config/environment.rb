@@ -19,6 +19,7 @@ require 'sinatra'
 require 'erb'
 
 require 'shotgun'
+
 require "faker"
 require "bcrypt"
 
