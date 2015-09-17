@@ -7,7 +7,7 @@ post '/users' do
   if @user.save
     erb :"users/confirm-account"
   else
-    erb :"users/new"
+    redirect "/users/new"
   end
 end
 
