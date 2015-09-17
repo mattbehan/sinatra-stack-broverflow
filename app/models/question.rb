@@ -22,6 +22,10 @@ class Question < ActiveRecord::Base
     Tagging.where(question_id: question_id)
   end
 
+  def find_author_reputation(user_id)
+    # User.find_by(id: user_id).votes.count
+  end
+
   def sum_votes_for_question
     votes.sum(:value)
   end

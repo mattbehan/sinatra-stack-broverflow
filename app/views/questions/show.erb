@@ -8,7 +8,7 @@
   <p>
     <%= @question.sum_votes_for_question %>
   </p>
-  <a href="questions/<%= @question.id %>/votes/-1">Downvote</a>
+  <a href="/questions/<%= @question.id %>/votes/-1">Downvote</a>
   <!-- Question body -->
   <p> <%= @question.body %></p>
   <!-- Taggings -->
@@ -17,6 +17,8 @@
   <a href="">
       <%= @question.find_display_name(@question.user_id) %>
   </a>
+  <!-- Reputation -->
+  <p>Reputation: <%=  @question.find_author_reputation(@question.user_id) %></p>
   <br>
   <!-- Add a comment -->
   <a href="#">add a comment</a>
@@ -27,17 +29,23 @@
   <% @answers.each do |answer| %>
     <div class="container">
       <!-- Stats -->
-      <a href="">Upvote</a>
+      <a href="/answers/<%= answer.id %>/votes/1">Upvote</a>
       <p>
-        <%= answer.find_votes_for_answer %>
+        <%= answer.sum_votes_for_answer %>
       </p>
-      <a href="">Downvote</a>
+      <a href="/answers/<%= answer.id %>/votes/-1">Downvote</a>
+      <br>
+      <!-- Best Answer -->
+      <a href="">Choose as Best Answer</a>
       <!-- Text -->
       <h2> <%= answer.text %> </h2>
       <!-- Answer Author -->
       <a href="/users/"<%= @question.user_id %>>
           <%= answer.find_display_name(answer.user_id) %>
       </a>
+      <!-- Reputation -->
+      <p>Reputation: <%=  answer.find_author_reputation(answer.user_id) %></p>
+      <br>
       <br>
       <!-- Add a comment -->
       <a href="#">add a comment</a>
@@ -49,8 +57,7 @@
 <div class="container">
   <h2>Your Answer</h2>
 
-  <form action="/answers" method="post">
-    <input type="hidden" name="question_id" value=<%= @question.id %>>
+  <form action="/questions/<%=@question.id%>/answers" method="post">
     <textarea name="answer-text" placeholder="text"></textarea>
     <br>
     <input id="submit-button" type="submit" value="Submit Answer">
