@@ -2,13 +2,15 @@
 
 <!-- Questions -->
 <h1><%= @question.title %></h1>
-<div class="container" id="">
+
+<div class="questions">
   <!-- Stats -->
-  <a class="upvote" href="/questions/<%= @question.id %>/votes/1">Upvote</a>
+  <a href="/questions/<%= @question.id %>/votes/1" value = "1" class="upvote-button" id="<%=@question.id%>">Upvote</a>
   <p>
     <%= @question.sum_votes_for_question %>
   </p>
-  <a class="downvote" href="/questions/<%= @question.id %>/votes/-1">Downvote</a>
+  <a href="/questions/<%= @question.id %>/votes/-1" value = "-1" class="downvote-button" id="<%=@question.id%>">Downvote</a>
+
   <!-- Question body -->
   <p> <%= @question.body %></p>
   <!-- Taggings -->
@@ -20,20 +22,29 @@
   <!-- Reputation -->
   <p>Reputation: <%=  @question.find_author_reputation(@question.user_id) %></p>
   <br>
+
+  <!-- questions comments -->
+  <% if !@question.comments.empty? %>
+    <% @question.comments.each do |comment| %>
+    <%= erb :"comments/_show", layout: false, locals: {comment: comment, commentable: @question} %>
+    <% end %>
+    <% end %>
+  <p>
+
   <!-- Add a comment -->
-  <a href="#">add a comment</a>
+  <a href="/Question/<%=@question.id%>/comments/new">add a comment</a>
 </div>
 <!-- Answers -->
 <div class="container">
   <h4><%= @answers.length %> Answers</h4>
   <% @answers.each do |answer| %>
-    <div class="container">
+    <div class="answers">
       <!-- Stats -->
-      <a href="/answers/<%= answer.id %>/votes/1">Upvote</a>
+      <a href="/answers/<%= answer.id %>/votes/1" value = "1" class="upvote-button" id="<%=@question.id%>">Upvote</a>
       <p>
         <%= answer.sum_votes_for_answer %>
       </p>
-      <a href="/answers/<%= answer.id %>/votes/-1">Downvote</a>
+      <a href="/answers/<%= answer.id %>/votes/-1" value = "-1" class="downvote-button" id="<%=@question.id%>">Downvote</a>
       <br>
       <!-- Best Answer -->
       <a href="">Choose as Best Answer</a>
@@ -48,6 +59,12 @@
       <br>
       <br>
       <!-- Add a comment -->
+        <% if !answer.comments.empty? %>
+    <% answer.comments.each do |comment| %>
+    <%= erb :"comments/_show", layout: false, locals: {comment: comment, commentable: answer} %>
+    <% end %>
+    <% end %>
+
       <a href="#">add a comment</a>
       <br>
     </div>

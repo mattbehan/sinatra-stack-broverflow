@@ -29,4 +29,9 @@ class Question < ActiveRecord::Base
   def sum_votes_for_question
     votes.sum(:value)
   end
+
+  def self.order_by_newest
+    self.order(created_at: :desc)
+  end
+
 end
