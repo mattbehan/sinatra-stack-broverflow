@@ -1,8 +1,16 @@
 include Faker
 
+bro_names = ["Brobama", "EdgarAllenBro", "Broseidon", "seniorBroGrammer", "chadbrochill69", "theDMB518", "aBROham Lincoln", "BrozoTheClown22", "ScottBroscius32", "Brobi-wan Kenobi", "TonyBromo11", "Blake", "Brody", "Brodo Baggins", "ezpz", "Skyler", "Tad", "Kelly", "Carson", "laxxx00", "topCheddar34", "Johnnyjabroni00", "BobbyLeeSwagger", "skittles", "butters", "joeyBones", "TommyD89", "curlBro00", "Gronk87", "McLovin"]
+
+bro_questions=["Brahs, wher is the chillest spot 2 lax in Lincoln Park?", "Does Subway ever get old?", "Is it chill to do yoga in my lax pinnie?",  "Partied with Nic Cage in Vegas. I think he stole my wallet", "Are vegetables actually 'necessary'?", "How many of you guys cried during Bambi? Don't Lie","Can't stop falling asleep in Stats 101", "Can any nerds here help me program my drone to fly around and make breakfast like that chillass robot from flubber?", "Least chill bro showoff- Donald Trump vs. Kanye West", "Is it dangerous to eat a pound of protein powder? What about if you didn't drink any water with it?", "I just got fired for showing up to a client meeting in my lax pinnie. Whats the deal?","What do people mean when they say for all intense and purposes?", "I knew Hermione from Harry Potter would grow up to be a looker", "I can't stop drinking milk...", "Watched Gladiator for the thirty first time last night. Never gets old. Russell Crowe is such a bro","Tom Cruise used to be the man. What happened to that jabroni.", "People keep saying tell me how you feel. What the hell are they talking about?", "Old spice v Pantene Flow V. What do you love more", "Dave Matthews at Spac.... worth?", "How many times do they let you go back to college before they kick you out?"]
+
+x=Array.new(10,Faker::Lorem.sentence)
+bro_questions += x
+
+
 20.times {
     new_user = User.create(
-    display_name: Faker::Internet.user_name,
+    display_name: bro_names.shift,
     email: Faker::Internet.free_email,
     password: ( Faker::Internet.password(16)[0].upcase ) ,
     birthday: 40.years.ago,
@@ -16,7 +24,7 @@ include Faker
   questions_time = (rand(10)+1)
   question = Question.create(
     user_id: rand(20)+1,
-    title: Faker::Lorem.sentence,
+    title: bro_questions.shift,
     body: Faker::Lorem.paragraph,
     created_at: questions_time.days.ago
     )
@@ -75,5 +83,3 @@ i=1
   end
   i+=1
 end
-
-bro_names = ["Brobama", "Edgar Allen Bro", "Broseidon", "Junior BroGrammer", "chadbrochill69", "aBROham Lincoln", "Brozo the clown", "ScottBroscius32", "Brobi-wan Kenobi", "TonyBromo11", "Blake", "Brody", "Brodo Baggins", "Brojangles", "Skyler", "Tad", "Kelly", "Carson", "laxxx00"]

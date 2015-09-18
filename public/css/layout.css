@@ -4,6 +4,10 @@ body{
   line-height: 1.3em;
   color: black;
   min-width: 1030px;
+  background-image: url("../images/overbro-image.png"), none;
+  background-position: right;
+  background-size: 600px;
+  background-repeat: no-repeat;
 }
 header{
   margin: 0 auto;
@@ -82,11 +86,13 @@ input [type=text]{
   display: block;
   width: 200px;
   height: 50px;
-  background-image: url("http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=a7723f5f7e59"),none;
+  background-image: url("../images/overbro.png"),none;
   background-position: top left;
   background-repeat: no-repeat;
   position: relative;
   top: 5px;
+
+background-size: 200px;
 }
 #hmenus{
   top: 42px;
@@ -113,6 +119,9 @@ input [type=text]{
   color: #fff;
   background: #9ea3a9;
   -webkit-transition: background, 0.15s, ease;
+}
+.mainnavs ul li a:hover {
+  background-color: #FC0303
 }
 .subheader{
   margin-bottom: 0px;

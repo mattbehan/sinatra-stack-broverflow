@@ -1,4 +1,4 @@
-html {
+/*html {
   text-align: center;
 }
 .container {
@@ -7,4 +7,174 @@ html {
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
   text-align: center;
+}*/
+
+/*Nicole*/
+#auth-pages {
+  background-color: #F6F6F6;
+}
+
+.auth-container {
+  margin: 20px auto;
+  width: 980px;
+  padding: 20px;
+  text-align: center;
+}
+
+#auth-nav {
+  height: 32px;
+  text-align: left;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E6E6E6;
+  padding-top: 8px;
+}
+
+.auth-nav-text {
+  font-size: 13px;
+  color: #777777;
+  text-decoration: none;
+  padding: 11px 0 11px 40px;
+  margin-top: 11px;
+}
+
+#stack-exchange {
+  height: 54px;
+  width: 200px;
+}
+
+.auth-container {
+  width:;
+}
+
+#se-catchphrase {
+  font-size: 22px;
+  font-weight: 300;
+}
+
+#auth-hr {
+  width: 150px;
+  color: #F15D60;
+  background-color: #F15D60;
+  height: 1px;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+#form-container {
+  width: 310px;
+  padding: 32px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  border: 1px solid #E6E6E6;
+}
+
+#social {
+  height: 41px;
+  width: 150px;
+  border-radius: 5px;
+}
+
+.auth-form {
+  text-align: left !important;
+}
+
+#or {
+  font-size: 10px;
+  color: #777777;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+}
+
+input {
+  height: 36px;
+  width: 300px;
+  padding-left: 6px;
+  margin-top: 6px;
+}
+
+#signup-options {
+  font-size: 14px;
+}
+
+#right-text {
+  text-align: right !important;
+}
+
+#submit {
+  width: 125px;
+  height: 40px;
+  float: right;
+  background-color: #0077CC;
+  color: #FFFFFF;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#change {
+  width: 355px;
+  padding: 10px;
+  background-color: #FFFFFF;
+  margin: 25px auto;
+  border: 1px solid #E6E6E6;
+}
+
+#terms {
+  font-size: 14px;
+}
+
+.site-links {
+  margin: 5px;
+  text-align: center;
+}
+
+#site-links {
+  font-size: 13px;
+  padding-left: 5px;
+}
+
+.legal {
+  font-size: 11px;
+  text-align: center;
+}
+/*gap*/
+.site-links {
+  text-align: left;
+}
+
+.site-links a {
+  margin-right: 15px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #A2DCF4;
+}
+
+.footer-table th {
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: left;
+  width: 130px;
+}
+
+.footer-table a {
+  font-size: 12px;
+  color: #B8B8B8;
+  text-align: left;
+}
+
+.footer-legal {
+  font-size: 11px;
+  color: #696969;
+  margin-top: 30px;
+}
+
+#default-pic {
+  height: 34px;
+  width: 34px;
 }

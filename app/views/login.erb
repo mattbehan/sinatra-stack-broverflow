@@ -1,64 +1,100 @@
-<nav class="auth">
-  <a href="/">Back to Stack Overflow</a>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="container">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
 
-  <img src="images/stack_exchange_logo.png" alt="Stack Exchange">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
 
-  <h2>A network of 148 Q&amp;A communities</h2>
+  <title></title>
+</head>
 
-    <p>Log in to continue to <img src="stack-overbro-logo.png" alt="Stack Overbro"> Stack Overflow</p>
+<body>
+  <div id="auth-pages">
+  <nav id="auth-nav">
+    <a class="auth-nav-text" href="/questions">&#8592;Back to Stack Overbro</a>
+  </nav>
 
-  <div id="form-container">
-    <div id="social-login-buttons">
-      <img src="/images/sign-in-with-google.png" alt="Sign in with Google">
-      <img src="/images/sign-in-with-facebook.png" alt="Sign in with Facebook">
+  <div class="container">
+    <div class="auth-container">
+
+      <img id="stack-exchange" src="/images/stack_exchange_logo.png" alt="Stack Exchange">
+
+      <p id="se-catchphrase">A network of 148 Q&amp;A communities</p>
+
+      <hr id="auth-hr">
+
+      <p>Log in to continue to <img src="stack-overbro-logo.png" alt="Stack Overbro"> <span class="bold"> Stack Overbro</span></p>
+
+      <div id="form-container">
+        <div id="social-login-buttons">
+          <img id="social" src="/images/sign-in-with-google.png" alt="Sign in with Google">
+          <img id="social"src="/images/sign-in-with-facebook.png" alt="Sign in with Facebook">
+        </div>
+
+        <p id="or">OR</p>
+
+        <form class="auth-form" method="post" action="/login">
+
+          <label for="email">Email</label><br>
+          <input id="email" type="text" name="email" placeholder="you@example.org">
+          <br>
+          <br>
+
+          <label for="password">Password</label><br>
+          <input id="password" type="password" name="password" placeholder="********">
+          <br>
+          <br>
+
+          <div id="right-text">
+            <a align="right" id="signup-options" href="/">forgot password?</a>
+          </div>
+          <br>
+
+
+          <a id="signup-options" href="/">more log in options</a>
+
+          <input id="submit" type="submit" name="login" value="Log in">
+        </form>
+      </div>
+
+      <div id="change">
+        <p id="terms">Don't have an account? <a id="signup-options" href="/users/new">Sign up</a></p>
+      </div>
+
     </div>
 
-    <p id="or">OR</p>
+    <div class="site-links">
+      <a id="site-links" href="/">tour</a>
+      <a id="site-links" href="/">blog</a>
+      <a id="site-links" href="/">chat</a>
+      <a id="site-links" href="/">data</a>
+      <a id="site-links" href="/">legal</a>
+      <a id="site-links" href="/">privacy</a>
+      <a id="site-links" href="/">policy</a>
+      <a id="site-links" href="/">work here</a>
+      <a id="site-links" href="/">advertising</a>
+      <a id="site-links" href="/">info</a>
+      <a id="site-links" href="/">mobile</a>
+      <a id="contact-links" href="/">contact us</a>
+      <a id="contact-links" href="/">feedback</a>
+    </div>
 
-    <form class="auth" method="post" action="/login">
-
-      <label for="email">Email (required, but never shown)</label>
-      <input id="email" type="text" name="email">
-      <br>
-
-      <label for="password">Password</label>
-      <input id="password" type="password" name="password">
-      <br>
-
-      <a id="signup-options" href="/">forgot password?</a>
-
-      <a id="signup-options" href="/">more sign up options</a>
-
-      <input type="submit" name="login" value="Log in">
-    </form>
+    <div class="legal">
+      <p>site design / logo © 2015 Bro Exchange Inc; user contributions licensed under cc by-sa 3.0 with attribution required</p>
+      <p>rev 2015.9.15.2824</p>
+    </div>
   </div>
-
-  <div id="change">
-    <p id="terms">Don't have an account? <a id="signup-options" href="/users/new">Sign up</a></p>
-  </div>
-
-</div>
-
-<div class="site-links">
-  <a href="/">tour</a>
-  <a href="/">blog</a>
-  <a href="/">chat</a>
-  <a href="/">data</a>
-  <a href="/">legal</a>
-  <a href="/">privacy</a>
-  <a href="/">policy</a>
-  <a href="/">work here</a>
-  <a href="/">advertising</a>
-  <a href="/">info</a>
-  <a href="/">mobile</a>
-  <a id="contact-links" href="/">contact us</a>
-  <a id="contact-links" href="/">feedback</a>
-</div>
-
-<div class="legal">
-  <p>site design / logo © 2015 Stack Exchange Inc; user contributions licensed under cc by-sa 3.0 with attribution required</p>
-  <p>rev 2015.9.15.2824</p>
-</div>
+</body>
+</html>

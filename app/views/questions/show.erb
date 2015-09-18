@@ -10,8 +10,12 @@
         <div class="topbar-links">
           <div class="links-container">
             <span class="topbar-menu-links">
-              <a href="">sign up</a>
-              <a href="">login</a>
+              <% if current_user %>
+              <a href="/logout">logout</a>
+              <% else %>
+              <a href="/users/new">sign up</a>
+              <a href="/login">login</a>
+              <% end %>
             </span>
           </div>
           <div class="search-container">
@@ -44,7 +48,7 @@
     <div id="content">
       <div id="question-header">
         <h1><a href="#"><%= @question.title %></a></h1>
-        <!-- <h1><a href="http://stackoverflow.com/questions/32637476/how-to-extract-values-from-json-blob-into-new-columns-in-r-data-frame">How to structure Redux components/containers</a></h1> -->
+
       </div>
         <div id="mainbar">
           <div class="question">
@@ -54,12 +58,12 @@
                   <td class="votecell">
                     <div class="vote">
                       <div class="questions">
-                        <a class="upvote upvote-button" href="/questions/<%= @question.id %>/votes/1" id="<%=@question.id%>">Upvote</a>
-                        <!-- <a class="vote-up-off">up vote</a> -->
+                        <a class="upvote upvote-button" href="/questions/<%= @question.id %>/votes/1" id="<%=@question.id%>" value= 1>Upvote</a>
+
                         <span class="vote-count-post"><%= @question.sum_votes_for_question %></span>
-                        <!-- <span class="vote-count-post">1</span> -->
-                        <a class="downvote downvote-button" href="/questions/<%= @question.id %>/votes/-1" id="<%=@question.id%>">Downvote</a>
-                        <!-- <a class="vote-down-off">down vote</a> -->
+
+                        <a class="downvote downvote-button" href="/questions/<%= @question.id %>/votes/-1" id="<%=@question.id%>" value=-1>Downvote</a>
+
                         <a class="star-off">favorite</a>
                       </div>
                     </div>
@@ -110,7 +114,7 @@
                                 </div>
                                 <div class="user-details">
                                   <a href=""><%= @question.find_display_name(@question.user_id) %></a>
-                                  <!-- <a href="">codejak</a> -->
+
                                   <br>
                                   <span class="reputation-score">187</span>
                                 </div>
@@ -122,6 +126,7 @@
                     </div>
                   </td>
                 </tr>
+
                 <tr>
                   <td class="votecell"></td>
                   <td>
@@ -160,6 +165,7 @@
                     </div>
                   </td>
                 </tr>
+
               </tbody>
             </table>
           </div>
@@ -178,10 +184,10 @@
                     <td class="votecell">
                       <div class="vote">
                         <div class="answers">
-                          <a class="vote-up-off upvote-button" href="/answers/<%= answer.id %>/votes/1" value = "1" id="<%=@question.id%>">up vote</a>
+                          <a class="vote-up-off upvote-button" href="/answers/<%= answer.id %>/votes/1" value = 1 id="<%=answer.id%>">up vote</a>
                           <span class="vote-count-post"><%= answer.sum_votes_for_answer %></span>
                           <!-- <span class="vote-count-post">1</span> -->
-                          <a class="vote-down-off downvote-button" href="/answers/<%= answer.id %>/votes/-1" value = "-1" id="<%=@question.id%>">down vote</a>
+                          <a class="vote-down-off downvote-button" href="/answers/<%= answer.id %>/votes/-1" value = -1 id="<%=answer.id%>">down vote</a>
                         </div>
                       </div>
                     </td>
@@ -267,7 +273,27 @@
             <% end %>
 
           </div>
-        </div>
+        <!-- <div class="container"> -->
+          <form action="/questions/<%=@question.id%>/answers" method="post">
+              <input type="hidden" name="question_id" value=<%= @question.id %>>
+            <h2 class="space">Your Answer</h2>
+            <div class="post-editor">
+              <textarea name="answer-text"></textarea>
+            </div>
+            <div class="form-submit cbt">
+              <input id="submit-button" type="submit" value="Post Your Answer" tabIndex="110">
+            </div>
+          </form>
+          <!-- <h2>Your Answer</h2>
+            <form action="/answers" method="post">
+              <input type="hidden" name="question_id" value=<%= @question.id %>>
+              <textarea name="answer-text">
+              </textarea>
+            </form>
+            <input type="submit" id="submit-button" value="Submit New Answer"> -->
+        <!-- </div> -->
+        </div><!--mainbar-->
+
         <div id="sidebar">
           <div id="jobs-ad"><a href="" class="top">Jobs Near You</a>
             <ul class="jobs">
@@ -298,7 +324,7 @@
           </div>
         </div>
     </div>
-    <footer></footer>
+    <!-- <footer></footer> -->
     </div>
   </body>
 </html>
