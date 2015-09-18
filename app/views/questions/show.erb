@@ -2,6 +2,7 @@
 
 <!-- Questions -->
 <h1><%= @question.title %></h1>
+
 <div class="questions">
   <!-- Stats -->
   <a href="/questions/<%= @question.id %>/votes/1" value = "1" class="upvote-button" id="<%=@question.id%>">Upvote</a>
@@ -9,6 +10,7 @@
     <%= @question.sum_votes_for_question %>
   </p>
   <a href="/questions/<%= @question.id %>/votes/-1" value = "-1" class="downvote-button" id="<%=@question.id%>">Downvote</a>
+
   <!-- Question body -->
   <p> <%= @question.body %></p>
   <!-- Taggings -->
