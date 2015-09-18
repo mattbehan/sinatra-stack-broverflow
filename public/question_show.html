@@ -43,7 +43,8 @@
     </header>
     <div id="content">
       <div id="question-header">
-        <h1><a href="http://stackoverflow.com/questions/32637476/how-to-extract-values-from-json-blob-into-new-columns-in-r-data-frame">How to structure Redux components/containers</a></h1>
+        <h1><a href="#"><%= @question.title %></a></h1>
+        <!-- <h1><a href="http://stackoverflow.com/questions/32637476/how-to-extract-values-from-json-blob-into-new-columns-in-r-data-frame">How to structure Redux components/containers</a></h1> -->
       </div>
         <div id="mainbar">
           <div class="question">
@@ -52,20 +53,19 @@
                 <tr>
                   <td class="votecell">
                     <div class="vote">
-                      <a class="vote-up-off">up vote</a>
-                      <span class="vote-count-post">1</span>
-                      <a class="vote-down-off">down vote</a>
+                      <a class="upvote" href="/questions/<%= @question.id %>/votes/1">Upvote</a>
+                      <!-- <a class="vote-up-off">up vote</a> -->
+                      <span class="vote-count-post"><%= @question.sum_votes_for_question %></span>
+                      <!-- <span class="vote-count-post">1</span> -->
+                      <a class="downvote" href="/questions/<%= @question.id %>/votes/-1">Downvote</a>
+                      <!-- <a class="vote-down-off">down vote</a> -->
                       <a class="star-off">favorite</a>
                     </div>
                   </td>
                   <td class="postcell">
                     <div>
                       <div class="post-text">
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-
-                        <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy.</p>
-
-                        <p>The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their projects again and again. And if she hasn’t been rewritten, then they are still using her. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One</p>
+                        <p><%= @question.body %></p>
                       </div>
                       <div class="post-taglist">
                         <a href="" class="post-tag">json</a>
@@ -107,7 +107,8 @@
                                   </a>
                                 </div>
                                 <div class="user-details">
-                                  <a href="">codejak</a>
+                                  <a href=""><%= @question.find_display_name(@question.user_id) %></a>
+                                  <!-- <a href="">codejak</a> -->
                                   <br>
                                   <span class="reputation-score">187</span>
                                 </div>
