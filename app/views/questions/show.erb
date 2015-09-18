@@ -53,13 +53,15 @@
                 <tr>
                   <td class="votecell">
                     <div class="vote">
-                      <a class="upvote" href="/questions/<%= @question.id %>/votes/1">Upvote</a>
-                      <!-- <a class="vote-up-off">up vote</a> -->
-                      <span class="vote-count-post"><%= @question.sum_votes_for_question %></span>
-                      <!-- <span class="vote-count-post">1</span> -->
-                      <a class="downvote" href="/questions/<%= @question.id %>/votes/-1">Downvote</a>
-                      <!-- <a class="vote-down-off">down vote</a> -->
-                      <a class="star-off">favorite</a>
+                      <div class="questions">
+                        <a class="upvote upvote-button" href="/questions/<%= @question.id %>/votes/1" id="<%=@question.id%>">Upvote</a>
+                        <!-- <a class="vote-up-off">up vote</a> -->
+                        <span class="vote-count-post"><%= @question.sum_votes_for_question %></span>
+                        <!-- <span class="vote-count-post">1</span> -->
+                        <a class="downvote downvote-button" href="/questions/<%= @question.id %>/votes/-1" id="<%=@question.id%>">Downvote</a>
+                        <!-- <a class="vote-down-off">down vote</a> -->
+                        <a class="star-off">favorite</a>
+                      </div>
                     </div>
                   </td>
                   <td class="postcell">
@@ -175,10 +177,12 @@
                   <tr>
                     <td class="votecell">
                       <div class="vote">
-                        <a class="vote-up-off">up vote</a>
-                        <span class="vote-count-post"><%= answer.sum_votes_for_answer %></span>
-                        <!-- <span class="vote-count-post">1</span> -->
-                        <a class="vote-down-off">down vote</a>
+                        <div class="answers">
+                          <a class="vote-up-off upvote-button" href="/answers/<%= answer.id %>/votes/1" value = "1" id="<%=@question.id%>">up vote</a>
+                          <span class="vote-count-post"><%= answer.sum_votes_for_answer %></span>
+                          <!-- <span class="vote-count-post">1</span> -->
+                          <a class="vote-down-off downvote-button" href="/answers/<%= answer.id %>/votes/-1" value = "-1" id="<%=@question.id%>">down vote</a>
+                        </div>
                       </div>
                     </td>
                     <td class="answercell">

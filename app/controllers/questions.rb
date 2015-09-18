@@ -1,5 +1,5 @@
 get '/questions' do
-  @questions = Question.all
+  @questions = Question.order_by_newest
 
   erb :"questions/index"
 end
@@ -22,10 +22,14 @@ post '/questions' do
 end
 
 get '/questions/:id/votes/:value' do
-  votes = Question.find_by(id: params[:id]).votes
+  question = Question.find_by(id: params[:id])
+  votes = question.votes
   destroy_old_vote_and_create_new_vote(votes,session[:user_id],params[:value])
-
-  redirect "/questions/#{params[:id]}"
+  if request.xhr?
+    question.sum_votes_for_question.to_s
+  else
+    redirect "/questions/#{params[:id]}"
+  end
 end
 
 # get '/questions/:id/votes/-1' do
