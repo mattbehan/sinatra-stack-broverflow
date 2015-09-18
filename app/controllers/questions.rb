@@ -12,11 +12,11 @@ get '/questions/:id' do
   @question = Question.find_by(id: params[:id])
   @answers = Answer.where(question_id: @question.id)
 
-  erb :"/questions/show"
+  erb :"/questions/show", layout: false
 end
 
 post '/questions' do
-  Question.create(params[:question].merge("user_id" => 1))
+  Question.create(params[:question].merge("user_id" => session[:user_id]))
 
   redirect '/'
 end

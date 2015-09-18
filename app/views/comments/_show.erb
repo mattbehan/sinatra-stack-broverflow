@@ -1,12 +1,60 @@
-<div class="comment-body">
+<tr>
+  <td class="votecell"></td>
+  <td>
+    <div class="comments">
+      <table>
+        <tbody>
+          <tr class="comment">
+            <td>
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="comment-score">&nbsp;&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="comment-text">
+              <div class="comment-body">
+                <span class="comment-copy"><%= comment.text %> - </span>
+                <a href=""/users/<%= comment.user_id %>"" class="comment-user"><%= comment.users_display_name %></a>
+                <span class="comment-date">
+                  <a class="comment-link" href="">
+                    <span class="relativetime">2 hours ago</span>
+                  </a>
+                </span>
+
+                <%if authorized?(comment.id)%>
+                <a href="/<%=commentable.class.name%>/<%=commentable.id%>/comments/<%=comment.id%>/edit">edit button </a>
+                <form class="comment-delete" method="post" action="/<%= commentable.class.name %>/<%= commentable.id %>/comments/<%= comment.id %>">
+                  <input type="hidden" name="_method" value="delete"/>
+                  <input type="submit" value="delete"/>
+                </form>
+                <%end%>
+
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <a class="disabled-link" href="">add a comment</a>
+      <span class="dno"></span>
+    </div>
+  </td>
+</tr>
+
+<!-- <div class="comment-body">
    <span class="comment-text"> <%= comment.text %> - </span> <span class="comment-user"><a href="/users/<%= comment.user_id %>"> <%= comment.users_display_name %> </a>
    <%= comment.created_at %>
-   <%if authorized?(comment.id)%>
+   <%#if authorized?(comment.id)%>
     <a href="/<%=commentable.class.name%>/<%=commentable.id%>/comments/<%=comment.id%>/edit">edit button </a>
     <form class="comment-delete" method="post" action="/<%= commentable.class.name %>/<%= commentable.id %>/comments/<%= comment.id %>">
       <input type="hidden" name="_method" value="delete"/>
       <input type="submit" value="delete"/>
     </form>
-    <%end%>
+    <%#end%>
   </span>
-</div>
+</div> -->

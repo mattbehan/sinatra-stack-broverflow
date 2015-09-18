@@ -17,6 +17,9 @@ def create_if_different_vote_value(votes,session,value)
 end
 
 def destroy_old_vote_and_create_new_vote(votes,session,value)
+  # logger.info (votes)
+  # logger.info (session)
+  # logger.info (value)
   if votes != []
     create_if_different_vote_value(votes,session,value)
   else
