@@ -18,6 +18,7 @@ gem 'activerecord', '~>4.1'
 gem 'rake'
 gem "faker"
 gem "bcrypt"
+gem "rspec"
 
 group :test do
   gem 'rspec'
